@@ -1,2 +1,2 @@
-# chop-chop
-Chop Chop that video!
+# Chop-Chop
+Chop chop that video!
