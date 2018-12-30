@@ -1,0 +1,39 @@
+/* Coolors Exported Palette - coolors.co/454851-121420-4fb286-5ab1bb-48e28b */
+
+// color variables
+$gray: #454851;
+$black: #1A1A1A;
+$faded-green: #4fb286;
+$faded-blue: #5ab1bb;
+$highlight: #48e28b;
+
+$white: white;
+
+/* HSL */
+$gray: hsla(225%, 8%, 29%, 1);
+$black: hsla(0%, 0%, 10%, 1);
+$faded-green: hsla(153%, 39%, 50%, 1);
+$faded-blue: hsla(186%, 42%, 54%, 1);
+$highlight: hsla(146%, 73%, 58%, 1);
+
+/* RGB */
+$gray: rgba(69, 72, 81, 1);
+$black: rgba(26, 26, 26, 1);
+$faded-green: rgba(79, 178, 134, 1);
+$faded-blue: rgba(90, 177, 187, 1);
+$highlight: rgba(72, 226, 139, 1);
+
+// create classes for use in templates
+@mixin makeColor($name, $hex) {
+  #{unquote(#{$name}-fg)} { color: $hex; }
+  #{unquote(#{$name}-bg)} { background-color: $hex; }
+  #{unquote(#{$name}-bc)} { border-color: $hex; }
+  // #{unquote(#{$name}-fill)} { fill: $hex; }
+}
+
+@include makeColor( ".black", $black );
+@include makeColor( ".white", $white );
+@include makeColor( ".gray", $gray );
+@include makeColor( ".faded-green" , $faded-green );
+@include makeColor( ".faded-blue", $faded-blue );
+@include makeColor( ".highlight" , $highlight );
