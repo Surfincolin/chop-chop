@@ -1,3 +1,19 @@
+// require main CSS file to cause webpack to bundle
+require('../css/main.scss');
+
+import Vue from 'vue';
+import AppComponent from './components/App.vue';
+import store from './Store.js';
+
+window.addEventListener('load', () => {
+	var vm = window.vm = new Vue({
+		render: createElement => createElement(AppComponent),
+		el: '#app', // attach to this element
+		store // vuex
+	});
+});
+
+
 console.log("Hello Chop Chop!")
 
 // var Edit = {
