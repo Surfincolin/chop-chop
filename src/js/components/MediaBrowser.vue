@@ -42,7 +42,7 @@ export default {
 		dragOver(event) {
 			event.stopPropagation();
 			event.preventDefault();
-			
+
 			event.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 		}
 	},
@@ -72,15 +72,6 @@ export default {
 		border-right-style: solid;
 		padding: 4px 20px;
 		width: 40%;
-
-		.row {
-			flex: 0 1 auto;
-			width: 100%;
-		}
-
-		.label {
-			padding: 4px;
-		}
 
 		.drop-zone {
 			width: 100%;

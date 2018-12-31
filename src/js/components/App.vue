@@ -2,11 +2,11 @@
 
 	<div id="app">
 		<Menu></Menu>
-		<div class="row">
+		<div class="row flex flex-40">
 			<MediaBrowser></MediaBrowser>
 			<Output></Output>
 		</div>
-		<div class="row">
+		<div class="row flex-40">
 			<Timeline></Timeline>			
 		</div>
 	</div>
@@ -61,9 +61,11 @@ export default {
 		position: relative;
 	}
 
-	.row {
-		width: 100%;
+	.flex-40 {
 		flex: 1 1 40%;
+	}
+
+	.flex {
 		display: flex;
 	}
 	
