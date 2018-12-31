@@ -21,7 +21,9 @@ import Timeline from './Timeline.vue';
 
 export default {
 	data() {
+		return {
 
+		}
 	},
 	computed: {
 
@@ -36,7 +38,12 @@ export default {
 
 	},
 	created() {
-
+		if (window.File && window.FileReader && window.FileList && window.Blob) {
+		  // Great success! All the File APIs are supported.
+		  console.log("File APIs Supported");
+		} else {
+		  alert('The File APIs are not fully supported in this browser. Please switch to a more modern browser to us this app.');
+		}
 	},
 	watch: {
 

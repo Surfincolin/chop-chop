@@ -95,41 +95,8 @@ function updateReadout(ev) {
 	readBlob(dropped, start, stop);
 }
 
-function handleFileSelect(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
 
-	var files = evt.dataTransfer.files;
-	dropped = files;
 
-	var output = [];
-	for (var f of files) {
-		output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ', f.size, ' bytes, last modified: ', f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a', '</li>');
-	}
-
-	document.getElementById('file-list').innerHTML = '<ul>' + output.join('') + '</ul>';
-}
-
-function handleDragOver(evt) {
-	evt.stopPropagation();
-	evt.preventDefault();
-	evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-}
-
-if (window.File && window.FileReader && window.FileList && window.Blob) {
-  // Great success! All the File APIs are supported.
-  console.log("File APIs Supported");
-  var dropZone = document.getElementById('drop-zone');
-  dropZone.addEventListener('dragover', handleDragOver, false);
-  dropZone.addEventListener('drop', handleFileSelect, false);
-  var update = document.getElementById('update');
-  var processBtn = document.getElementById('process');
-  update.addEventListener('click', updateReadout, false);
-  processBtn.addEventListener('click', processWithMP4Box, false);
-
-} else {
-  alert('The File APIs are not fully supported in this browser.');
-}
 
 var canvas = document.getElementById('videocanvas');
 var ctx = canvas.getContext('2d');

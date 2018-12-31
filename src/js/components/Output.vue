@@ -3,7 +3,7 @@
 	<div id="output" class="highlight-bc">
 		<div class="video">
 			<video id="videoplayer" width="854" height="480" controls>
-				<source src="soft.mp4" type="video/mp4">
+				<!-- <source src="soft.mp4" type="video/mp4"> -->
 			</video>
 		</div>
 		<div class="preview">
