@@ -4,15 +4,20 @@ Vue.use(Vuex);
 
 var store = new Vuex.Store({
 	state: {
-		files: []
+		files: [],
 	},
 	getters: {
 		files(state) {
 			return state.files;
+		},
+		file(state) {
+			return id => state.files[id];
 		}
 	},
 	mutations: {
-
+		addFile(state, file) {
+			state.files.push(file);
+		}
 	},
 	actions: {
 

@@ -8,7 +8,7 @@
 				<div class="header highlight-bc">
 					<p><strong>{{t.title}}</strong></p>
 				</div>
-				<div class="content gray-bg"></div>
+				<div class="content gray-bg" @dragover="dragOver" @drop="addToTrack"></div>
 			</div>
 		</div>
 	</div>
@@ -23,7 +23,20 @@ export default {
 	  }
 	},
 	methods:{
+		addToTrack(event) {
+			event.stopPropagation();
+			event.preventDefault();
 
+			console.log(event);
+			// this.files = event.dataTransfer.files;
+
+		},
+		dragOver(event) {
+			event.stopPropagation();
+			event.preventDefault();
+
+			event.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+		}
 	},
 	computed:{
 	  
