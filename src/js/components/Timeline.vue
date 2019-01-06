@@ -27,7 +27,8 @@ export default {
 			event.stopPropagation();
 			event.preventDefault();
 
-			console.log(event);
+			var index = parseInt(event.dataTransfer.getData("media"));
+			console.log(this.$store.getters.file(index));
 			// this.files = event.dataTransfer.files;
 
 		},

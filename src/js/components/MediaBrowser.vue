@@ -6,8 +6,8 @@
 		<output id="file-list">
 			<ul v-if="files">
 				<li v-for="(f, index) in files" :key="index" draggable="true"
-				@dragstart="dragStart" >
-					<strong>{{f.name}}</strong>
+				@dragstart="dragStart(index,$event)" >
+					{{index}}<strong>{{f.name}}</strong>
 					{{f.type || 'n/a'}} - {{(f.size/1024/1024).toFixed(2)}} MBs, <!-- last modified: {{f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a'}} -->
 				</li>
 			</ul>
@@ -37,7 +37,6 @@ export default {
 			event.stopPropagation();
 			event.preventDefault();
 
-			// this.files = event.dataTransfer.files;
 			this.$store.commit('addFile', event.dataTransfer.files[0]);
 
 		},
@@ -47,12 +46,9 @@ export default {
 
 			event.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 		},
-		dragStart(event) {
-			console.log(event.targetVM);
-			console.log(event.target);
-			// ev.targetVM
-   //         this._dragNode = ev.target
-			event.dataTransfer.setData('text/plain',null);
+		dragStart(index, event) {
+			// console.log(index);
+			event.dataTransfer.setData('media', index);
 		}
 	},
 	computed:{
