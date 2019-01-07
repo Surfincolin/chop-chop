@@ -28,8 +28,9 @@ export default {
 			event.preventDefault();
 
 			var index = parseInt(event.dataTransfer.getData("media"));
-			console.log(this.$store.getters.file(index));
+			var cVid = this.$store.getters.file(index);
 			// this.files = event.dataTransfer.files;
+			window.engine.processVideo(cVid);
 
 		},
 		dragOver(event) {
